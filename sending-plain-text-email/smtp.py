@@ -5,8 +5,7 @@ from email.mime.text import MIMEText
 SMTP_SERVER = 'smtp.gmail.com'
 SMTP_PORT = 587
 SENDER_EMAIL = os
-SENDER_PASSWORD = 'ajezoniwsttgozjj'
-RECIPIENT_EMAIL = 'chuonpiseth05@gmail.com'
+
 
 subject = "Test email from Python"
 body = "This is a test email sent from a Python script using smtplib and email.mime.text."
