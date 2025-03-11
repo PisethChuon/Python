@@ -66,7 +66,6 @@ msg['To'] = ', '.join(recipient_emails)
 msg['Subject'] = subject
 msg.attach(MIMEText(body, 'plain'))
 
-
 # Send the email
 try:
      server = smtplib.SMTP(smtp_server, smtp_port)
