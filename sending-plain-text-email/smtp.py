@@ -13,6 +13,7 @@ SENDER_PASSWORD = os.getenv('SENDER_PASSWORD')
 RECIPIENT_EMAIL = os.getenv('RECIPIENT_EMAIL')
 
 
+
 subject = "Test email from Python"
 body = "This is a test email sent from a Python script using smtplib and email.mime.text."
 msg = MIMEText(body)
