@@ -1,9 +1,10 @@
 # Web Scraping: Automate Data Collection
 # Python can scrape information automatically.
-# Author: Piseth Chuon
+# Author: Piseth CHUON
 
 import requests
 from bs4 import BeautifulSoup
+
 
 # blog URL
 url = "https://realpython.com"
@@ -29,3 +30,4 @@ if response.status_code == 200:
         print("No <h2> elements found on this page.")
 else:
     print(f"Failed to fetch data. Status code: {response.status_code}")
+
