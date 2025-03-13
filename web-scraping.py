@@ -5,7 +5,6 @@
 import requests
 from bs4 import BeautifulSoup
 
-
 # blog URL
 url = "https://realpython.com"
 
@@ -16,7 +15,7 @@ response = requests.get(url)
 
 # Check if request was successful
 if response.status_code == 200:
-    print("Request successful! Parsing HTML...")
+    print("Request successful! Parsing HTML...")1
     soup = BeautifulSoup(response.text, "html.parser")
 
     # Find and print all <h2> elements
