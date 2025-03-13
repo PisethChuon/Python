@@ -16,7 +16,7 @@ response = requests.get(url)
 
 # Check if request was successful
 if response.status_code == 200:
-    print("Request successful! Parsing HTML...")1
+    print("Request successful! Parsing HTML...")
     soup = BeautifulSoup(response.text, "html.parser")
 
     # Find and print all <h2> elements
