@@ -29,5 +29,5 @@ if response.status_code == 200:
     else:
         print("No <h2> elements found on this page.")
 else:
-    print(f"Failed to fetch data. Status code: {response.status_code}")
+    print(f"Failed to fetch data. Status code: {response.status_code}
 
