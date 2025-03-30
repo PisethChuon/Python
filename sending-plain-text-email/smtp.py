@@ -19,6 +19,7 @@ msg['Subject'] = subject
 msg['From'] = SENDER_EMAIL
 msg['To'] = RECIPIENT_EMAIL
 
+
 try:
     server = smtplib.SMTP(SMTP_SERVER, SMTP_PORT)
     server.starttls()
