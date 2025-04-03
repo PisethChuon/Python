@@ -27,7 +27,6 @@ try:
     server.sendmail(SENDER_EMAIL, RECIPIENT_EMAIL, msg.as_string())
     server.close()
     
-    
     print('Email sent successfully')
 except Exception as e:
     print(f'Something went wrong... {e}')
