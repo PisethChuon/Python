@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 # Load environment variables from .env file
 load_dotenv()
 
-SMTP_SERVER = 'smtp.gmail.com'
+SMTP_SERVER = 'smp.gmail.com'
 SMTP_PORT = 587
 SENDER_EMAIL = os.getenv('SENDER_EMAIL')
 SENDER_PASSWORD = os.getenv('SENDER_PASSWORD')
