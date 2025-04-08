@@ -5,7 +5,6 @@
 import requests
 from bs4 import BeautifulSoup
 
-
 # blog URL
 url = "https://realpython.com"
 
