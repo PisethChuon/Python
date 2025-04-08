@@ -5,7 +5,7 @@
 import requests
 from bs4 import BeautifulSoup
 
-# blog URL
+# Blog URL
 url = "https://realpython.com"
 
 print(f"Fetching data from {url}...")
