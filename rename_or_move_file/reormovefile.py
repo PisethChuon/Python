@@ -1,6 +1,6 @@
 from pathlib import Path
 
-# Old file paths
+# Old file path
 old_path = Path("/path/to/old_file.txt")
 
 # New file path (can be same directory with different name or a different folder)
