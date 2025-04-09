@@ -1,27 +1,32 @@
 from pytube import YouTube
-from pydub import AudioSegment
+from moviepy.editor import AudioFileClip
 import os
 
-def download_youtube_as_mp3(url, output_path='.'):
-    # Download the YouTube video in the highest quality
-    yt = YouTube(url)
-    video = yt.streams.filter(only_audio=True).first()
+def yt_to_mp3(yt_url, output_path='.'):
+    try:
+        yt = YouTube(yt_url)
+        print(f"Downloading: {yt.title}")
+        
+        # Download the highest quality audio stream
+        audio_stream = yt.streams.filter(only_audio=True).first()
+        downloaded_file = audio_stream.download(output_path=output_path)
+        
+        # Convert to .mp3 using moviepy
+        base, ext = os.path.splitext(downloaded_file)
+        mp3_file = f"{base}.mp3"
+        
+        audio_clip = AudioFileClip(downloaded_file)
+        audio_clip.write_audiofile(mp3_file)
+        audio_clip.close()
 
-    # Download the audio stream (in the best possible format available)
-    print(f"Downloading: {yt.title}")
-    download_path = video.download(output_path=output_path)
+        # Optional: remove the original .mp4 audio
+        os.remove(downloaded_file)
 
-    # Convert downloaded audio to MP3 format
-    print(f"Converting to MP3...")
-    audio = AudioSegment.from_file(download_path)
-    mp3_path = os.path.splitext(download_path)[0] + '.mp3'
-    audio.export(mp3_path, format='mp3')
+        print(f"Saved as MP3: {mp3_file}")
+        return mp3_file
+    except Exception as e:
+        print(f"Error: {e}")
 
-    # Remove the original file (optional, if you want to keep only the MP3)
-    os.remove(download_path)
-
-    print(f"Download and conversion complete: {mp3_path}")
-
-# Example Usage:
-url = 'https://youtu.be/jcEKpP_B9qM?si=fhAwjVZFp8_gWR37'
-download_youtube_as_mp3(url)
+# Example usage
+yt_url = "https://www.youtube.com/watch?v=YOUR_VIDEO_ID"
+yt_to_mp3(yt_url, output_path='downloads')
