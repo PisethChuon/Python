@@ -28,5 +28,5 @@ def yt_to_mp3(yt_url, output_path='.'):
         print(f"Error: {e}")
 
 # Example usage
-yt_url = "https://www.youtube.com/watch?v=YOUR_VIDEO_ID"
+yt_url = "https://www.youtube.com/watch?v=6uUvcX85krw&list=RDUBj9OmRnKh4&index=3"
 yt_to_mp3(yt_url, output_path='downloads')
