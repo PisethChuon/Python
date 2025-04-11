@@ -7,7 +7,6 @@ old_path = Path("/path/to/old_file.txt")
 new_path = Path("/path/to/new_file.txt")  # Rename
 # new_path = Path("/new/folder/new_file.txt")  # Move
 
-
 # Rename or move the file
 old_path.rename(new_path)
 
