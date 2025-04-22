@@ -8,5 +8,4 @@ data = {"name": "Chanthy"}
 
 # Render template
 output = template.render(data)
-
 print(output)
