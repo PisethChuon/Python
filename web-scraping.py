@@ -5,10 +5,6 @@
 import requests
 from bs4 import BeautifulSoup
 
-<<<<<<< HEAD
-# Blog URL
-=======
-
 # blog URL
 >>>>>>> office
 url = "https://realpython.com"
