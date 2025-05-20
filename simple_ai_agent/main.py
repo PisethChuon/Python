@@ -16,6 +16,6 @@ class TemperatureAgent:
 # --- Simulation ---
 agent = TemperatureAgent(desired_temp=24)  # 24°C is our comfy goal
 
-current_temp = 27  # pretend this is from a sensor
+current_temp = 26  # pretend this is from a sensor
 action = agent.perceive(current_temp)
 agent.act(action)
