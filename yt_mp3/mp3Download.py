@@ -15,7 +15,6 @@ def download_audio(url):
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
         ydl.download([url])
 
-
 try:
     url = input("Enter the YouTube video URL: ").strip()
     download_audio(url)
