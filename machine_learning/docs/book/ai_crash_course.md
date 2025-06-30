@@ -1,2 +1,3 @@
 # AI Crash Course
-Chapter 1 Welcome to the Robot World
+
+1. Chapter 1 Welcome to the Robot World
