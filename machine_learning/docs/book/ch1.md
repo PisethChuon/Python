@@ -15,4 +15,4 @@
 
 ## Summary
 
-    The author used the technich of intuition way than math for speeling out the concept.
+    The author used the technich of intuition way than math for speeling out the concept
