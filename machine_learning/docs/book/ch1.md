@@ -28,6 +28,7 @@
         1. First term
             Find the topic of practicum and evaluate any scope of project to be sure going to completed for year 4
 
+
         2. Second term
             Start the project and using tracking tools (notion, github) and writing the paper during the time (don't wait until y4)
 
