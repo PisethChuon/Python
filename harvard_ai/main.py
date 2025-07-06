@@ -1,4 +1,8 @@
-x = int(input("Enter a number: "))
-y = int(input("Enter another number: "))
+def main():
+    x = int(input("Enter a number: "))
+    print("x sequred is", squared(x))
 
-print(x + y)
+def squared(n):
+    return n * n
+    
+main()
