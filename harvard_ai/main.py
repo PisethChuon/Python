@@ -1,4 +1,4 @@
-name = input("What is your name? ").strip().title()
+x = int(input("Enter a number: "))
+y = int(input("Enter another number: "))
 
-# say hello to user
-print(f"Hello, {name}")
+print(x + y)
