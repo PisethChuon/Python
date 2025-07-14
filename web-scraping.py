@@ -7,7 +7,6 @@ from bs4 import BeautifulSoup
 
 # blog URL
 
-
 url = "https://realpython.com"
 
 print(f"Fetching data from {url}...")
