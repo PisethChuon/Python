@@ -1,3 +1,3 @@
 x = 'me'
 
-print(f'Hello, {x}!');
+print(f'Hello, {x}!')
