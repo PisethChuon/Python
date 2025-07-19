@@ -22,18 +22,26 @@
 #     print("You got an F")
 
 # Parity
+# def main():
+#     x = int(input("What's x?: "))
+#     if is_even(x):
+#         print("Even")
+#     else:
+#         print("Odd")
 
-def main():
-    x = int(input("What's x?: "))
-    if is_even(x):
-        print("Even")
-    else:
-        print("Odd")
+# def is_even(n):
+#     return True if n % 2 == 0 else False
 
-def is_even(n):
-    if n % 2 == 0:
-        return True
-    else:
-        return False
-    
-main()
+# main()
+
+# Match condition
+month = 1
+name = 4
+
+match name:
+    case 1 | 2 | 3 if month == 5:
+        print("Weekday")
+    case 4 if month == 1:
+        print("Holiday")
+    case _:
+        print("NA")
