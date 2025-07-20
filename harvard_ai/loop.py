@@ -28,8 +28,14 @@
 
 # For loop example
 
-for i in range(1, 6):
-    i += 1
-    if i == 3:
-        continue
-    print("Loop ended, i is now:", i)
+# for i in range(1, 6):
+#     i += 1
+#     if i == 3:
+#         continue
+#     print("Loop ended, i is now:", i)
+
+
+# Python list with dictionary example
+
+for _ in range(3):
+    print("#")
