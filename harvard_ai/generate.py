@@ -1,4 +1,6 @@
-import random
+import cowsay
+import sys
 
-cond = random.choice(["heads", "tails"])
-print("Coin flip result:", cond)
+
+if len(sys.argv) == 2:
+    cowsay.cow("Hello, " + sys.argv[1])
