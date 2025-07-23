@@ -5,8 +5,12 @@
 import requests
 from bs4 import BeautifulSoup
 
+<<<<<<< HEAD
 
 # blog URL
+=======
+# Blog URL
+>>>>>>> de748c7c51f2d023b576f588e98cb1dd9bb74fcd
 url = "https://realpython.com"
 
 print(f"Fetching data from {url}...")
@@ -30,4 +34,3 @@ if response.status_code == 200:
         print("No <h2> elements found on this page.")
 else:
     print(f"Failed to fetch data. Status code: {response.status_code}")
-

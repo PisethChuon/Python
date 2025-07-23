@@ -6,6 +6,7 @@ from dotenv import load_dotenv
 # Load environment variables from .env file
 load_dotenv()
 
+
 SMTP_SERVER = 'smp.gmail.com'
 SMTP_PORT = 587
 SENDER_EMAIL = os.getenv('SENDER_EMAIL')
@@ -18,6 +19,7 @@ msg = MIMEText(body)
 msg['Subject'] = subject
 msg['From'] = SENDER_EMAIL
 msg['To'] = RECIPIENT_EMAIL
+
 
 try:
     server = smtplib.SMTP(SMTP_SERVER, SMTP_PORT)

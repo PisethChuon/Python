@@ -1,19 +1,61 @@
-from pytube import YouTube
-from moviepy.editor import *
+import os
+import tkinter as tk
+from tkinter import filedialog
+import pygame
 
-# Step 1: Get YouTube video
-url = 'https://www.youtube.com/watch?v=6uUvcX85krw'  # Replace with your video URL
-yt = YouTube(url)
+# Initialize pygame mixer
+pygame.mixer.init()
 
-# Step 2: Download the highest quality audio stream
-audio_stream = yt.streams.filter(only_audio=True).first()
-downloaded_file = audio_stream.download(filename="temp_audio.mp4")
+# Load music file
+def load_music():
+    global music_file
+    music_file = filedialog.askopenfilename(filetypes=[("MP3 files", "*.mp3")])
+    if music_file:
+        pygame.mixer.music.load(music_file)
+        song_label.config(text=os.path.basename(music_file))
 
-# Step 3: Convert to MP3
-output_file = "output_audio.mp3"
-audio_clip = AudioFileClip(downloaded_file)
-audio_clip.write_audiofile(output_file)
+# Play the music
+def play_music():
+    if music_file:
+        pygame.mixer.music.play()
 
-# Step 4: Clean up
-audio_clip.close()
-print(f"Download complete! Saved as {output_file}")
+# Pause the music
+def pause_music():
+    pygame.mixer.music.pause()
+
+# Resume music
+def resume_music():
+    pygame.mixer.music.unpause()
+
+# Stop music
+def stop_music():
+    pygame.mixer.music.stop()
+
+# GUI setup
+root = tk.Tk()
+root.title("Python Music Player 🎵")
+root.geometry("400x300")
+root.config(bg="#1DB954")  # Spotify green
+
+song_label = tk.Label(root, text="Load a song to play", bg="#1DB954", fg="white", font=("Helvetica", 14))
+song_label.pack(pady=20)
+
+btn_frame = tk.Frame(root, bg="#1DB954")
+btn_frame.pack(pady=10)
+
+load_btn = tk.Button(btn_frame, text="Load", command=load_music)
+load_btn.grid(row=0, column=0, padx=10)
+
+play_btn = tk.Button(btn_frame, text="Play ▶️", command=play_music)
+play_btn.grid(row=0, column=1, padx=10)
+
+pause_btn = tk.Button(btn_frame, text="Pause ⏸️", command=pause_music)
+pause_btn.grid(row=0, column=2, padx=10)
+
+resume_btn = tk.Button(btn_frame, text="Resume 🔁", command=resume_music)
+resume_btn.grid(row=1, column=0, padx=10, pady=10)
+
+stop_btn = tk.Button(btn_frame, text="Stop ⏹️", command=stop_music)
+stop_btn.grid(row=1, column=1, padx=10, pady=10)
+
+root.mainloop()
