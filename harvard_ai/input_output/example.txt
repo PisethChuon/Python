@@ -1,3 +1,5 @@
-Hello! Welcome to example.txt
-This file is for testing purposes.
-Good Luck!
+Write to an Existing FileThis line is added at the end.
+
+ This line is added at the end.
+
+This line is added at the end.
