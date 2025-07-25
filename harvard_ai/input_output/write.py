@@ -1,6 +1,6 @@
 # Adds to the end without deleting existing content
-with open("example.txt", "a") as file:
-    file.write("\nThis line is added at the end.\n")
+with open("examples.txt", "x") as file:
+    file.write("This file is newly created.")
 
-with open("example.txt") as file:
-    print(file.read())
+# with open("example.txt") as file:
+#     print(file.read())
