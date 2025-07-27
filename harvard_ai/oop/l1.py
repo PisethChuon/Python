@@ -48,16 +48,17 @@ acc.deposit(500)
 acc.show_balance()
 '''
 
-class BankAccount:
-    def __init__(self, balance):
-        self.__balance = balance
+# Inheritance
+''''
+class Animal:
+    def speak(self):
+        print("Animal speaks")
 
-    def deposit(self, amount):
-        self.__balance += amount
+class Dog(Animal):
+    def bark(self):
+        print("Woof!")
 
-    def show_info(self):
-        print(f"Balance: {self.__balance}")
-        
-acc = BankAccount(1000)
-acc.deposit(500)
-acc.show_info()
+dog = Dog()
+dog.speak()  # From Animal
+dog.bark()   # From Dog
+'''
