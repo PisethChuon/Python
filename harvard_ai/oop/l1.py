@@ -62,3 +62,17 @@ dog = Dog()
 dog.speak()  # From Animal
 dog.bark()   # From Dog
 '''
+
+# Polymorephsim
+
+class Cat:
+    def sound(self):
+        print("Meow")
+
+class Dog:
+    def sound(self):
+        print("Bark")
+
+animals = [Cat(), Dog()]
+for a in animals:
+    a.sound()
