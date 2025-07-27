@@ -5,8 +5,17 @@
 import requests
 from bs4 import BeautifulSoup
 
+<<<<<<< HEAD
 # blog URL
 
+=======
+<<<<<<< HEAD
+
+# blog URL
+=======
+# Blog URL
+>>>>>>> de748c7c51f2d023b576f588e98cb1dd9bb74fcd
+>>>>>>> office
 url = "https://realpython.com"
 
 print(f"Fetching data from {url}...")
