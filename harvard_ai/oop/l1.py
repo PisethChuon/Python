@@ -98,19 +98,16 @@ c = Circle(5)
 print(c.area())
 '''
 
-from abc import ABC, abstractmethod
+# Dunder Method
+''''
+class Book:
+    def __init__(self, title):
+        self.title = title
 
-class Shape(ABC):
-    @abstractmethod
-    def area(self):
-        pass
+    def __str__(self):
+        return f"Book: {self.title}"
 
-class Circle(Shape):
-    def __init__(self, r):
-        self.r = r
+b = Book("Python 101")
+print(b)
+'''
 
-    def area(self):
-        return 3.14 * self.r * self.r
-    
-c = Circle(5)
-print(c.area())
