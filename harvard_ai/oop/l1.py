@@ -30,6 +30,34 @@ s1 = Student("Any", "A")
 s1.show_info()  
 '''
 
+# Encapsulation (Hiding Data)
+''''
+class BankAccount:
+    def __init__(self, balance):
+        self.__balance = balance # Private
 
+    def deposit(self, amount):
+        self.__balance += amount
 
+    def show_balance(self):
+        print(f"Balance: {self.__balance}")
+
+# Creating object
+acc = BankAccount(1000)
+acc.deposit(500)
+acc.show_balance()
+'''
+
+class BankAccount:
+    def __init__(self, balance):
+        self.__balance = balance
+
+    def deposit(self, amount):
+        self.__balance += amount
+
+    def show_info(self):
+        print(f"Balance: {self.__balance}")
         
+acc = BankAccount(1000)
+acc.deposit(500)
+acc.show_info()
