@@ -9,7 +9,13 @@ import os
 load_dotenv()
 
 BOT_TOKEN = os.getenv("BOT_TOKEN")
-API_KEY = os.getenv("REMOVE_BG_API_KEY")
+REMOVE_BG_API_KEY = os.getenv("REMOVE_BG_API_KEY")
+
+# Validate required environment variables
+if not BOT_TOKEN:
+    raise ValueError("BOT_TOKEN environment variable is required")
+if not REMOVE_BG_API_KEY:
+    print("Warning: REMOVE_BG_API_KEY not found. Will use simple background removal.")
 
 # /start command
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -81,18 +87,24 @@ async def handle_photo(update: Update, context: ContextTypes.DEFAULT_TYPE):
     except Exception as e:
         await update.message.reply_text(f"❌ Error processing image: {str(e)}")
 
-async def remove_background(image_data):
+async def remove_background(image_data: bytes) -> io.BytesIO:
     """
-    Remove background from image using remove.bg API
-    You need to sign up at https://www.remove.bg/api to get an API key
+    Remove background from image using remove.bg API.
+    Falls back to simple removal if API is unavailable.
+    
+    Args:
+        image_data: Raw image bytes
+        
+    Returns:
+        BytesIO object containing processed image, or None if failed
     """
     try:
         # Use the API key from environment variables
-        api_key = API_KEY
+        api_key = REMOVE_BG_API_KEY
         
-        # Check if API key is set (not the placeholder)
-        if not api_key or api_key == "YOUR_REMOVE_BG_API_KEY":
-            print("No valid API key found. Using simple background removal instead.")
+        # Check if API key is available
+        if not api_key:
+            print("No remove.bg API key found. Using simple background removal instead.")
             return await simple_background_removal(image_data)
         
         url = "https://api.remove.bg/v1.0/removebg"
@@ -123,11 +135,16 @@ async def remove_background(image_data):
         print("Falling back to simple background removal...")
         return await simple_background_removal(image_data)
 
-# Alternative: Simple background removal using PIL (basic implementation)
-async def simple_background_removal(image_data):
+async def simple_background_removal(image_data: bytes) -> io.BytesIO:
     """
-    A simple background removal using PIL (this is a basic implementation)
-    For better results, use the remove.bg API
+    Simple background removal using PIL (basic implementation).
+    Removes white/light colored backgrounds by making them transparent.
+    
+    Args:
+        image_data: Raw image bytes
+        
+    Returns:
+        BytesIO object containing processed image, or None if failed
     """
     try:
         print("Using simple background removal method...")
@@ -141,16 +158,19 @@ async def simple_background_removal(image_data):
         # Get image data
         data = image.getdata()
         
-        # Create new image data with transparent background for white/light pixels
+        # Create new image data with transparent background for light pixels
         new_data = []
-        for item in data:
-            # If pixel is close to white/light, make it transparent
-            # More aggressive threshold for better results
-            if (item[0] > 220 and item[1] > 220 and item[2] > 220) or \
-               (abs(item[0] - item[1]) < 10 and abs(item[1] - item[2]) < 10 and abs(item[0] - item[2]) < 10):
+        for pixel in data:
+            # Make white/light pixels transparent
+            is_light = (pixel[0] > 220 and pixel[1] > 220 and pixel[2] > 220)
+            is_similar_colors = (abs(pixel[0] - pixel[1]) < 10 and 
+                               abs(pixel[1] - pixel[2]) < 10 and 
+                               abs(pixel[0] - pixel[2]) < 10)
+            
+            if is_light or is_similar_colors:
                 new_data.append((255, 255, 255, 0))  # Transparent
             else:
-                new_data.append(item)
+                new_data.append(pixel)
         
         # Create new image
         new_image = Image.new('RGBA', image.size)
@@ -168,7 +188,12 @@ async def simple_background_removal(image_data):
         print(f"Error in simple background removal: {e}")
         return None
 
-if __name__ == '__main__':
+def main():
+    """Main function to start the bot."""
+    if not BOT_TOKEN:
+        print("❌ Error: BOT_TOKEN not found in environment variables")
+        return
+    
     app = ApplicationBuilder().token(BOT_TOKEN).build()
     
     # Add command handlers
@@ -183,3 +208,6 @@ if __name__ == '__main__':
     print("🤖 Background Remover Bot is starting...")
     print("📸 Send photos to remove backgrounds!")
     app.run_polling()
+
+if __name__ == '__main__':
+    main()
