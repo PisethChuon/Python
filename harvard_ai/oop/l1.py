@@ -111,3 +111,37 @@ b = Book("Python 101")
 print(b)
 '''
 
+''''
+# Person class:
+    - name
+    - age
+    print("Name: ", age " ", year old)
+
+# Student:
+    - Major
+    
+# Final display result should be: 
+                                Piseth, 22 year old
+                                Major: Software Engineering
+'''
+
+class Person():
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def show(self):
+        return f"{self.name}, {self.age} years old"
+    
+class Student(Person):
+    def __init__(self, name, age, major):
+        super().__init__(name, age)
+        self.major = major
+
+    def __str__(self):
+        return f"{self.show()}\nMajor: {self.major}"
+
+# Creating an object
+s = Student("Piseth", 22, "Software Engineering")
+print(s)
+# s.show()
