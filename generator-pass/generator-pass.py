@@ -1,6 +1,24 @@
-import random
+import random, secrets, string
 
-paper = ['A', 'B', 'C']
+# Contants
+letters = string.ascii_letters
+digits = string.digits
+special_char = string.punctuation
 
-q_list = [random.choice(paper) for i in range(40)]
-print(q_list)
+# concatenate
+alphabet = letters + digits + special_char
+
+# Password length 
+pwd_length = 12
+
+while True:
+    pwd = ''
+    for i in range(pwd_length):
+        pwd += ''.join(secrets.choice(alphabet))
+
+    if (any(char in special_char for char in pwd) and sum(char in digits for char in pwd)>=2):
+        break
+    
+    print("Simple Output:")
+    print(pwd)
+
