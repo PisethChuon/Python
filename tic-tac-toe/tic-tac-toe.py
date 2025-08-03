@@ -1,3 +1,8 @@
+""""
+Author: Piseth Chuon
+Tic Tac Toe Game using Pygame library
+"""
+
 import pygame
 import sys
 
@@ -31,7 +36,7 @@ draw_lines()
 borad = [[0 for _ in range(3)] for _ in range(3)]
 
 # Step 4: Handle Player Clicks
-player = 1
+player = 2
 
 def mark_square(row, col, player):
     borad[row][col] = player
