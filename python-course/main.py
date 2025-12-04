@@ -1,18 +1,6 @@
-myfamily = {
-    "child1": {
-        "name": "Emil",
-        "year": 2004
-    },
-    "child2": {
-        "name": "Tobias",
-        "year": 2007
-    },
-    "child3": {
-        "name": "Linus",
-        "year": 2011
-    }
-}
+users = [
+    {"name": "Piseth", "role": "admin"},
+    {"name": "Sok", "role": "staff"}
+]
 
-myfamily["child1"]["year"] = 2010
-
-print(myfamily["child1"])
+print(users[1]["role"])
