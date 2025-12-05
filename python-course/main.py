@@ -1,18 +1,5 @@
-myfamily = {
-    "child1": {
-        "name": "Emil",
-        "year": 2004
-    },
-    "child2": {
-        "name": "Tobias",
-        "year": 2007
-    },
-    "child3": {
-        "name": "Linus",
-        "year": 2011
-    }
-}
+def message():
+    print("Hello, welcome to the Python course!")
 
-myfamily["child1"]["year"] = 2010
 
-print(myfamily["child1"])
+message()
