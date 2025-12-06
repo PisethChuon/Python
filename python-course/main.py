@@ -1,15 +1,20 @@
-class Car:
-    def __init__(self, brand, model, year):
-        self.brand = brand
-        self.model = model
-        self.year = year
+# class Person:
+#     def __init__(self, name):
+#         self.name = name
 
-    def display_info(self):
-        print(f"{self.year} , {self.brand} , {self.model}")
+#     def greet(self):
+#         return "Hello, " + self.name
+    
+#     def welcome(self):
+#         print (f"Welcom, {self.name}")
+    
+# p = Person("Alice")
+# print(p.welcome())
 
-    def start_engine(self):
-        print("The engine has started.")
-        
-car = Car("Toyota", "Corolla", 2020)
-car.display_info()
-car.start_engine()
+def cal(a, b):
+    result = a + b
+    result2 = a * b
+    return result2
+
+cal1 = cal(3, 4)
+print(cal1)
