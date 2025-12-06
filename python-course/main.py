@@ -1,6 +1,10 @@
-users = [
-    {"name": "Piseth", "role": "admin"},
-    {"name": "Sok", "role": "staff"}
-]
+class Persion:
+    def __init__(myobject, name, age):
+        myobject.name = name
+        myobject.age = age
 
-print(users[1]["role"])
+    def greet(abc):
+        print("Hello, my name is " + abc.name)
+
+p1 = Persion("John", 36)
+p1.greet()
