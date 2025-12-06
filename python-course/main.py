@@ -1,10 +1,15 @@
-class Persion:
-    def __init__(myobject, name, age):
-        myobject.name = name
-        myobject.age = age
+class Car:
+    def __init__(self, brand, model, year):
+        self.brand = brand
+        self.model = model
+        self.year = year
 
-    def greet(abc):
-        print("Hello, my name is " + abc.name)
+    def display_info(self):
+        print(f"{self.year} , {self.brand} , {self.model}")
 
-p1 = Persion("John", 36)
-p1.greet()
+    def start_engine(self):
+        print("The engine has started.")
+        
+car = Car("Toyota", "Corolla", 2020)
+car.display_info()
+car.start_engine()
