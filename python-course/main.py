@@ -1,9 +1,6 @@
-rows = int(input("Enter Row: "))
+years_of_birth = [1990, 1991, 1990, 1990, 1992, 1991]
+ages = []
+for year in years_of_birth: 
+    ages.append(2014 - year)
 
-def print_pattern(rows):
-    for r in range(1, rows + 1):
-        for c in range(1, r + 1):
-            print("*", end=" ")
-        print()
-    
-print(print_pattern(rows))
+print(ages)  # Output: [24, 23, 24, 24, 22, 23]
