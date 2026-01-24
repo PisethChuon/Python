@@ -1,9 +1,3 @@
-var environment = "Development"
-let maxinmNumberOfLoginAttempts: Int
+let minValue = UInt8.min
+print(minValue)  // Output: 0
 
-if environment == "Development" {
-    maxinmNumberOfLoginAttempts = 100
-}
-else {
-    maxinmNumberOfLoginAttempts = 10
-}
