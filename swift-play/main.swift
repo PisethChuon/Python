@@ -1,3 +1,3 @@
-let minValue = UInt8.min
-print(minValue)  // Output: 0
+let maxValue = UInt8.max
+print(maxValue)  // Output: 255
 
