@@ -1,1 +1,2 @@
-print("Hello Swift!")
+message = "Hello"
+print(message)
