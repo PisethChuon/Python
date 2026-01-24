@@ -1,3 +1,6 @@
-let http200Status = (statusCode: 200, description: "OK")
-print(http200Status.statusCode)
-print(http200Status.description)
+let defaultColorName = "red"
+var userDefinedColorName: String?   // defaults to nil
+userDefinedColorName = "blue"
+
+var colorNameToUse = userDefinedColorName ?? defaultColorName
+print("The color name is \(colorNameToUse).")
