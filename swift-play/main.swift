@@ -1,4 +1,8 @@
-let three: Double = 3
-let pointOneFourOneFiveNine = 0.14159
-let pi = three + pointOneFourOneFiveNine
-print(pi)
+let orangesAreOrange = true
+let turnipsAreDelicious = false
+
+if turnipsAreDelicious {
+    print("Mmm, tasty turnips!")
+} else {
+    print("Eww, turnips are horrible.")
+}
