@@ -1,8 +1,3 @@
-let orangesAreOrange = true
-let turnipsAreDelicious = false
-
-if turnipsAreDelicious {
-    print("Mmm, tasty turnips!")
-} else {
-    print("Eww, turnips are horrible.")
-}
+let http200Status = (statusCode: 200, description: "OK")
+print(http200Status.statusCode)
+print(http200Status.description)
